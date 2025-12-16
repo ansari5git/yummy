@@ -305,7 +305,7 @@ document.getElementById("orderForm").addEventListener("submit", async function(e
     address: document.querySelector('textarea').value
   };
 
-  const res = await fetch("https://yummy-tnmp.onrender.com/", {
+  const res = await fetch("https://yummy-tnmp.onrender.com/order", {
     method: "POST",
     headers: {
       "Content-Type": "application/json"
