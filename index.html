@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,7 +12,7 @@
 <!-- header section starts -->
 <header>
  <a href="#" class="logo"><i class="fas fa-utensils"></i>Yummy</a>
- <div id="menu-bar" class="fas fa-bars"></div>
+ <div id="menu-bar" cla ss="fas fa-bars"></div>
 
  <nav class="navbar">
  <a href="#home">home</a>
@@ -267,7 +268,7 @@ only Rs.39/- per peice.</p>
  <div class="image">
 <div style="width:100%;height:0;padding-bottom:100%;position:relative;"><iframe src="https://giphy.com/embed/YPEOcXlXCbWMif2KHi" width="100%" height="100%" style="position:absolute" frameBorder="0" class="giphy-embed" allowFullScreen></iframe></div><p><a href="https://giphy.com/gifs/embrace-order-now-myembracebox-YPEOcXlXCbWMif2KHi">via GIPHY</a></p>
  </div>
- <form action="">
+ <form id="orderForm">>
  <div class="inputBox">
  <input type="text" placeholder="Name">
  <input type="email" placeholder="Email">
@@ -293,6 +294,35 @@ rows="10"></textarea>
  <a href="https://www.linkedin.com/feed/" class="btn">linkedin</a>
  </div>
 </section>
-<script src="script.js"></script>
+<script>
+document.getElementById("orderForm").addEventListener("submit", async function(e) {
+  e.preventDefault();
+
+  const data = {
+    name: document.querySelector('input[placeholder="Name"]').value,
+    email: document.querySelector('input[placeholder="Email"]').value,
+    phone: document.querySelector('input[placeholder="Number"]').value,
+    food: document.querySelector('input[placeholder="Food Name"]').value,
+    address: document.querySelector('textarea').value
+  };
+
+  const res = await fetch("https://yummy-j0xs.onrender.com", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify(data)
+  });
+
+  if (res.ok) {
+    alert("Order placed successfully");
+  } else {
+    alert("Error placing order");
+  }
+});
+</script>
+
 </body>
+</html>
+
 </html>
